@@ -16,11 +16,11 @@ body {
 
 .container {
     width: 100%;
-    max-width: 450px;
+    max-width: 460px;
     background: white;
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -48,8 +48,9 @@ input, select {
     border: 1px solid #ccc;
     border-radius: 8px;
     outline: none;
-    font-size: 16px;
+    font-size: 15px;
     margin-bottom: 20px;
+    background: white;
 }
 
 input:focus, select:focus {
@@ -60,14 +61,19 @@ input:focus, select:focus {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 10px;
 }
 
-.currency-box div {
+.currency {
     flex: 1;
+    min-width: 0;
 }
 
-.currency-box button {
+.currency select {
+    cursor: pointer;
+}
+
+#swapBtn {
     margin-top: 15px;
     border: none;
     background: #eee;
@@ -75,27 +81,44 @@ input:focus, select:focus {
     border-radius: 50%;
     cursor: pointer;
     font-size: 20px;
+    transition: 0.3s;
 }
 
-#convertBtn {
+#swapBtn:hover {
+    background: #dcdfff;
+    transform: rotate(180deg);
+}
+
+#convertBtn, #resetBtn {
     width: 100%;
     padding: 13px;
     border: none;
     border-radius: 8px;
-    background: #667eea;
     color: white;
-    font-size: 17px;
+    font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    margin-top: 8px;
+}
+
+#convertBtn {
+    background: #667eea;
 }
 
 #convertBtn:hover {
     background: #4c5fd5;
 }
 
+#resetBtn {
+    background: #777;
+}
+
+#resetBtn:hover {
+    background: #555;
+}
+
 .result {
     margin-top: 25px;
-    padding: 18px;
+    padding: 20px;
     background: #f3f4ff;
     border-radius: 10px;
     text-align: center;
@@ -108,7 +131,19 @@ input:focus, select:focus {
 
 .result h2 {
     color: #4c5fd5;
+    margin-bottom: 12px;
     overflow-wrap: anywhere;
+}
+
+#exchangeRate {
+    font-size: 14px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #888;
+    font-size: 12px;
 }
 
 @media (max-width: 400px) {
@@ -117,6 +152,10 @@ input:focus, select:focus {
     }
 
     .currency-box {
-        gap: 6px;
+        gap: 5px;
+    }
+
+    #swapBtn {
+        padding: 8px;
     }
 }
